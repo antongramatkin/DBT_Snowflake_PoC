@@ -1,0 +1,86 @@
+
+version: 2
+
+models:
+    - name: HUB_Country
+      description: "HUB table for Country"
+      columns:
+          - name: Country_Sk
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+          - name: Country_Bk
+            description: "The business key for this table"
+            tests:
+                - not_null
+          - name: Record_Source
+            description: "Source of the record"
+          - name: Load_Id
+            description: "ID of the ELT Process when record was first time loaded"
+
+    - name: HUB_User
+      description: "HUB table for the User"
+      columns:
+          - name: User_Sk
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+          - name: Username_Bk
+            description: "The business key for this table"
+            tests:
+                - not_null                
+          - name: Record_Source
+            description: "Source of the record"
+          - name: Load_Id
+            description: "ID of the ELT Process when record was first time loaded"
+
+    - name: LNK_User_Country
+      description: "LINK table between User and Country"
+      columns:
+          - name: User_Country_Sk
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+          - name: User_Sk
+            description: "The HUB_User key"
+            tests:
+                - unique
+                - not_null
+          - name: Country_Sk
+            description: "The HUB_Country key"
+            tests:
+                - unique
+                - not_null
+
+          - name: Username_Bk
+            description: "The User business key"
+            tests:
+                - not_null      
+          - name: Country_Bk
+            description: "The Country business key"
+            tests:
+                - not_null                 
+          - name: Record_Source
+            description: "Source of the record"
+          - name: Load_Id
+            description: "ID of the ELT Process when record was first time loaded"      
+
+
+snapshots:
+  - name: SAT_Country
+    description: "SAT for the Country"
+    columns:
+      - name: Country_Sk
+      - name: Country   
+      
+  - name: SAT_User
+    description: "SAT for the User"
+    columns:
+      - name: User_Sk
+      - name: First_Name
+      - name: Last_Name
+      - name: Email
+      - name: Password     

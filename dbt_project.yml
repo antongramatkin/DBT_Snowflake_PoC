@@ -42,3 +42,7 @@ models:
 
         Data_Mart:
             materialized: table
+            
+snapshots:
+  dbt_snowflake_poc:
+    +target_schema: DV_Core         

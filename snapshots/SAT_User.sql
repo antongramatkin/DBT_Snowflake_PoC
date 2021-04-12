@@ -2,12 +2,10 @@
 
 {{
     config(
-      target_database='Airflow-Snowflake-PoC',
-      target_schema='DV_Core',
       unique_key='User_Sk',
-
       strategy='check',
-      check_cols=['Firstname', 'Lastname', 'Password', 'Email']
+      check_cols=['First_Name', 'Last_Name', 'Password', 'Email'],
+      tags=['sattelite'],
     )
 }}
 
@@ -16,7 +14,7 @@ select
     ,Firstname      as First_Name
     ,Lastname       as Last_Name
     ,Email          as Email
-    ,"Password"     as "Password"
-from STAGING.Users
+    ,Password       as Password
+from "STAGING"."users"
 
 {% endsnapshot %}

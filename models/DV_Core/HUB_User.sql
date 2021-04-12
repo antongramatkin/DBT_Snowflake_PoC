@@ -1,10 +1,13 @@
 {{ config(materialized='incremental') }}
 
 select
-    u.MD5(Username)     as User_Sk
+    MD5(u.Username)     as User_Sk
     ,u.Username         as User_Bk
-    ,"Web"              as Record_Source
-    ,u.Load_Id          as Load_id
-from STAGING.Users u
+    ,'Web'              as Record_Source
+    ,u.LoadId           as Load_id
+from "STAGING"."users" u
+
+{% if is_incremental() %}
 where
-    not exists (select 1 from DV_Core.HUB_User h where h.Username_Bk = u.Username)
+    not exists (select 1 from "DV_Core"."HUB_User" h where h.Username_Bk = u.Username)
+{% endif %}    

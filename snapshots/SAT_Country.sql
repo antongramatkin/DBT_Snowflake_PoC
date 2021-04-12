@@ -2,19 +2,17 @@
 
 {{
     config(
-      target_database='Airflow-Snowflake-PoC',
-      target_schema='DV_Core',
       unique_key='Country_Sk',
 
       strategy='check',
-      check_cols=['Country']
+      check_cols=['Country'],
+      tags=['sattelite'],
     )
 }}
 
 select
     MD5(Country)    as Country_Sk
     ,Country        as Country
-    ,Load_Id        as Load_Id
-from STAGING.Users
+from "STAGING"."users"
 
 {% endsnapshot %}
