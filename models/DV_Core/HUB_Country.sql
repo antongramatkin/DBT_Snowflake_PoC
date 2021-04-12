@@ -9,5 +9,5 @@ from "STAGING"."users" u
 
 {% if is_incremental() %}
 where
-    not exists (select 1 from "DV_Core"."HUB_Country" h where h.Country_Bk = u.Country)
+    not exists (select 1 from "DV_CORE"."HUB_COUNTRY" h where h.Country_Bk = u.Country)
 {% endif %}    

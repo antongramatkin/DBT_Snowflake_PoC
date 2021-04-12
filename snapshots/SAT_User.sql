@@ -1,4 +1,4 @@
-{% snapshot SAT_User %}
+{% snapshot SAT_USER %}
 
 {{
     config(

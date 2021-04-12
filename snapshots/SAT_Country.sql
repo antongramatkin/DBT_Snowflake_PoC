@@ -1,4 +1,4 @@
-{% snapshot SAT_Country %}
+{% snapshot SAT_COUNTRY %}
 
 {{
     config(
