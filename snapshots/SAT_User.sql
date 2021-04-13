@@ -9,7 +9,7 @@
     )
 }}
 
-select
+select distinct
     MD5(Username)   as User_Sk
     ,Firstname      as First_Name
     ,Lastname       as Last_Name

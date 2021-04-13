@@ -10,7 +10,7 @@
     )
 }}
 
-select
+select distinct
     MD5(Country)    as Country_Sk
     ,Country        as Country
 from "STAGING"."users"
