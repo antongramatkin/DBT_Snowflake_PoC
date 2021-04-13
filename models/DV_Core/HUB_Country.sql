@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-select
+select distinct
     MD5(u.Country)  as Country_Sk
     ,u.Country      as Country_Bk
     ,'Web'          as Record_Source

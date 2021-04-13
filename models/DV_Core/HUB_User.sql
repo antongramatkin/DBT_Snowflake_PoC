@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-select
+select distinct
     MD5(u.Username)     as User_Sk
     ,u.Username         as Username_Bk
     ,'Web'              as Record_Source
