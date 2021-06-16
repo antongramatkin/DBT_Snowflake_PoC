@@ -74,13 +74,20 @@ snapshots:
     description: "SAT for the Country"
     columns:
       - name: Country_Sk
+        description: "The HUB_Country key, not unique for this table"
       - name: Country   
+        description: "Country name"
       
   - name: SAT_USER
     description: "SAT for the User"
     columns:
       - name: User_Sk
+        description: "The HUB_User key, not unique for this table"
       - name: First_Name
+        description: "First name of the User, Attention: PII Data!"
       - name: Last_Name
+        description: "Last name of the user, Attention: PII Data!"
       - name: Email
-      - name: Password     
+        description: "User's email, Attention: PII Data!"
+      - name: Password
+        description: "User's password, Attention: PII Data!"     
